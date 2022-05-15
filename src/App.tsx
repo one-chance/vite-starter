@@ -1,4 +1,6 @@
 import { useState } from 'react';
+
+import { View } from '@/components/View';
 import logo from './logo.svg';
 import './App.css';
 
@@ -38,6 +40,8 @@ const App = () => {
           </a>
         </p>
       </header>
+
+      <View />
     </div>
   );
 };
