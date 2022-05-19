@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -19,17 +15,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": "./src/",
     "paths": {
-      "@/*": [
-        "src/*",
-      ],
+      "@apis/*": ["apis/*"],
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"],
+      "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src",
-    "vite.config.ts"
-  ],
+  "include": ["src", "vite.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
