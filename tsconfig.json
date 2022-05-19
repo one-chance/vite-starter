@@ -23,8 +23,7 @@
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@/*": ["src/*"]
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["src", "vite.config.ts"],

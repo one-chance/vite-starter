@@ -1,16 +1,18 @@
 import { useState } from 'react';
 
-import { View } from '@/components/View';
 import logo from './logo.svg';
+
+import { Text } from '@components/Text';
+
 import './App.css';
 
-const App = () => {
+export default () => {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img alt="logo" className="App-logo" src={logo} />
         <p>Hello Vite + React!</p>
         <p>
           <button type="button" onClick={() => setCount(count => count + 1)}>
@@ -20,12 +22,12 @@ const App = () => {
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
-        <p>
+        <Text>
           <a
             className="App-link"
             href="https://reactjs.org"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             Learn React
           </a>
@@ -33,17 +35,13 @@ const App = () => {
           <a
             className="App-link"
             href="https://vitejs.dev/guide/features.html"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             Vite Docs
           </a>
-        </p>
+        </Text>
       </header>
-
-      <View />
     </div>
   );
 };
-
-export default App;
