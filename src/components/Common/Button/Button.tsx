@@ -1,11 +1,13 @@
 import { CSSObject, jsx } from '@emotion/react';
 import { ButtonHTMLAttributes } from 'react';
 
-export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  type?: 'button' | 'submit' | 'reset';
   fit?: boolean;
+  color?: string;
 };
 
-export default ({ type = `button`, fit, ...props }: Props) => {
+export default ({ type, fit, color, ...props }: ButtonProps) => {
   const css: CSSObject = {
     backgroundColor: `unset`,
     border: `none`,
@@ -14,6 +16,7 @@ export default ({ type = `button`, fit, ...props }: Props) => {
     display: `inline-flex`,
     justifyContent: `center`,
     alignItems: `center`,
+    color: `unset`,
     transition: `filter 0.3s, background 0.3s`,
     ':not(:disabled)': {
       cursor: `pointer`,
@@ -25,12 +28,12 @@ export default ({ type = `button`, fit, ...props }: Props) => {
       filter: `brightness(100%)`,
     },
     ':disabled': {
-      filter: `opacity(50%)`,
+      // filter: `opacity(50%)`,
       pointerEvents: `none`,
     },
     ...(fit && { width: `fit-content` }),
+    ...(color && { backgroundColor: color }),
   };
 
-  return jsx(`button`, { css, ...props });
-  //   return <button css={css} type={type} {...props} />;
+  return jsx(`button`, { type: `button`, css, ...props });
 };

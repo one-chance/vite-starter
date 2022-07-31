@@ -1,4 +1,4 @@
-import { Svg } from '@components/Svg';
+import { Svg } from '@components/Common';
 
 export const search = (color: string) => (
   <Svg>

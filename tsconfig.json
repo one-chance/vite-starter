@@ -21,7 +21,9 @@
       "@apis/*": ["apis/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@locales/*": ["locales/*"],
       "@pages/*": ["pages/*"],
+      "@routes/*": ["routes/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     }

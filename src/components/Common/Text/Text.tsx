@@ -1,22 +1,13 @@
 import { CSSObject, jsx } from '@emotion/react';
 import { HTMLAttributes, LabelHTMLAttributes } from 'react';
 
-import { colors, fontSizes, fontWeights } from '@styles/Theme';
+import { fontSizes, fontWeights } from '@styles/Theme';
 
-export type Props = (
+export type TextProps = (
   | HTMLAttributes<HTMLSpanElement>
   | LabelHTMLAttributes<HTMLLabelElement>
 ) & {
   component?: string;
-  size?:
-    | 'medium'
-    | 'xx-small'
-    | 'x-small'
-    | 'small'
-    | 'large'
-    | 'x-large'
-    | 'xx-large';
-  weight?: 'light' | 'regular' | 'medium' | 'bold';
   xxSmall?: boolean;
   xSmall?: boolean;
   small?: boolean;
@@ -32,13 +23,15 @@ export type Props = (
   color?: string;
   start?: boolean;
   center?: boolean;
+  end?: boolean;
   fill?: boolean;
+  noDrag?: boolean;
+  space?: number;
+  underline?: boolean;
 };
 
 export default ({
   component = `span`,
-  size,
-  weight,
   xxSmall,
   xSmall,
   small,
@@ -55,24 +48,29 @@ export default ({
   start,
   center,
   fill,
+  noDrag,
+  space,
+  underline,
   ...props
-}: Props) => {
+}: TextProps) => {
   const css: CSSObject = {
-    ...colors[color || `black`],
+    fontFamily: `Noto Sans KR`,
+    backgroundColor: `unset`,
+    color: color || `black`,
+    lineHeight: 1.25,
+    letterSpacing: space ? `${space}px` : `1px`,
     ...fontSizes[
-      size ||
-        (xxSmall && `xxSmall`) ||
+      (xxSmall && `xxSmall`) ||
         (xSmall && `xSmall`) ||
         (small && `small`) ||
         (large && `large`) ||
         (xLarge && `xLarge`) ||
         (xxLarge && `xxLarge`) ||
         (xxxLarge && `xxxLarge`) ||
-        `medium`
+        `normal`
     ],
     ...fontWeights[
-      weight ||
-        (light && `light`) ||
+      (light && `light`) ||
         (medium && `medium`) ||
         (semiBold && `semiBold`) ||
         (bold && `bold`) ||
@@ -82,7 +80,11 @@ export default ({
     ...(start && { textAlign: `left` }),
     ...(center && { textAlign: `center` }),
     ...(fill && { flex: 1 }),
-    ...{ fontFamily: `Noto Sans KR` },
+    ...(noDrag && { userSelect: `none` }),
+    ...(underline && {
+      textDecoration: `underline`,
+      textUnderlinePosition: `under`,
+    }),
   };
 
   return jsx(component, { css, ...props });

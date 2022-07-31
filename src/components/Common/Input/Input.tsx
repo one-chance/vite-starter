@@ -1,19 +1,19 @@
-import { CSSObject } from '@emotion/react';
+import { CSSObject, jsx } from '@emotion/react';
 import { forwardRef, InputHTMLAttributes } from 'react';
 
-export type Props = InputHTMLAttributes<HTMLInputElement>;
+export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 const css: CSSObject = {
   border: `none`,
   outline: `none`,
   background: `none`,
   lineHeight: `30px`,
-  color: `currentColor`,
-  //   fontSize: FontSizes.medium,
+  padding: `0 8px`,
+  //   color: 'currentColor',
+  //   fontSize: FontSizes.normal,
   //   '::placeholder': {
   //     color: TextColors.textLight
   //   },
-  boxSizing: `content-box`,
   WebkitTapHighlightColor: `transparent`,
   minWidth: 0,
   '&:-webkit-autofill': {
@@ -25,10 +25,10 @@ const css: CSSObject = {
     appearance: `none`,
   },
   ':focus': {
-    outline: 0,
+    outline: `none`,
   },
 };
 
-export default forwardRef<HTMLInputElement, Props>((props, ref) => (
-  <input ref={ref} css={css} {...props} />
-));
+export default forwardRef<HTMLInputElement, InputProps>((props, ref) =>
+  jsx(`input`, { ref, css, ...props }),
+);

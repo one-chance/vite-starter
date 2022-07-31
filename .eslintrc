@@ -31,7 +31,8 @@
     "func-names": "off",
     // "jest/prefer-strict-equal": "error",
     // "jest/prefer-to-have-length": "warn",
-    "no-shadow": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-return-assign": "off",
     // "prettier/prettier": "error",
     "react/button-has-type": "off",
     "react/function-component-definition": [
@@ -44,10 +45,10 @@
     ],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off", // 맨 위에 React 선언 안해도 됨
-    // "react/jsx-fragments": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
+    // "react/jsx-fragments": "off",
     "react/jsx-sort-props": [
       "warn",
       {
@@ -101,8 +102,8 @@
       "plugins": ["@typescript-eslint/eslint-plugin"],
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-        // "prettier"
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
       ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",

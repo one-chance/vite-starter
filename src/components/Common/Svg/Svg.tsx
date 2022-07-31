@@ -1,8 +1,7 @@
 import { CSSObject } from '@emotion/react';
 import { SVGProps } from 'react';
 
-type Props = SVGProps<SVGSVGElement>;
-export type SvgProps = Props;
+export type SvgProps = SVGProps<SVGSVGElement>;
 
 const DEFAULT_VIEW_BOX_SIZE = 24;
 
@@ -11,7 +10,7 @@ const css: CSSObject = {
   height: `100%`,
 };
 
-export default ({ width, height, ...props }: Props) => (
+export default ({ width, height, ...props }: SvgProps) => (
   <svg
     css={css}
     focusable="false"

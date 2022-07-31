@@ -1,9 +1,8 @@
 import { DetailedHTMLProps, FormHTMLAttributes } from 'react';
 
-type Props = DetailedHTMLProps<
+export type FormProps = DetailedHTMLProps<
   FormHTMLAttributes<HTMLFormElement>,
   HTMLFormElement
 >;
 
-export type FormProps = Props;
-export default (props: Props) => <form {...props} />;
+export default (props: FormProps) => <form {...props} />;

@@ -2,7 +2,7 @@ import { CSSObject } from '@emotion/react';
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
-import { FlexView } from '@components/View';
+import { FlexView } from '@components/Common';
 
 type ModalProps = {
   width?: number;

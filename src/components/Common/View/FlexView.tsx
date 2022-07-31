@@ -1,9 +1,7 @@
-import { CSSObject } from '@emotion/react';
-import { forwardRef } from 'react';
+import { CSSObject, jsx } from '@emotion/react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import View, { Props as ViewProps } from './View';
-
-export type Props = ViewProps & {
+export type FlexViewProps = HTMLAttributes<HTMLDivElement> & {
   fill?: boolean;
   row?: boolean;
   center?: boolean;
@@ -36,17 +34,23 @@ const fixedCSS: CSSObject = {
   bottom: `3rem`,
 };
 
-const defaultCSS: CSSObject = {
-  display: `flex`,
-};
-
-export default forwardRef<HTMLDivElement, Props>(
+export default forwardRef<HTMLDivElement, FlexViewProps>(
   (
-    { fill, row, content, items, center, fixed, wrap, gap, ...props }: Props,
+    {
+      fill,
+      row,
+      content,
+      items,
+      center,
+      fixed,
+      wrap,
+      gap,
+      ...props
+    }: FlexViewProps,
     ref,
   ) => {
     const css: CSSObject = {
-      ...defaultCSS,
+      display: `flex`,
       ...(fill && { flex: 1 }),
       ...((row && { flexDirection: `row` }) || { flexDirection: `column` }),
       ...(center && { justifyContent: `center`, alignItems: `center` }),
@@ -54,9 +58,9 @@ export default forwardRef<HTMLDivElement, Props>(
       ...(items && { alignItems: alignItems[items] }),
       ...(fixed && fixedCSS),
       ...(wrap && { flexWrap: `wrap` }),
-      ...(gap && { gap }),
+      ...(gap && { gap: `${gap}px` }),
     };
 
-    return <View ref={ref} css={css} {...props} />;
+    return jsx(`div`, { css, ref, ...props });
   },
 );

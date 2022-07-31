@@ -1,23 +1,25 @@
 import { CSSObject } from '@emotion/react';
 
 export const fontSizes: { [key: string]: CSSObject } = {
-  xxSmall: { fontSize: `0.625rem` }, // 10pt
-  xSmall: { fontSize: `0.75rem` }, // 12pt
-  small: { fontSize: `0.875rem` }, // 14pt
-  normal: { fontSize: `1rem` }, // 16pt
-  large: { fontSize: `1.125rem` }, // 18pt
-  xLarge: { fontSize: `1.875rem` }, // 30pt
-  xxLarge: { fontSize: `2.125rem` }, //
+  xxSmall: { fontSize: `0.625rem` }, // 10px
+  xSmall: { fontSize: `0.75rem` }, // 12px
+  small: { fontSize: `0.875rem` }, // 14px
+  normal: { fontSize: `1rem` }, // 16px
+  large: { fontSize: `1.25rem` }, // 20px
+  xLarge: { fontSize: `1.5rem` }, // 24px
+  xxLarge: { fontSize: `1.75rem` }, // 28px
+  xxxLarge: { fontSize: `2rem` }, // 32px
 };
 
 export const FontSizes = {
-  xxSmall: `0.625rem`, // 10pt
-  xSmall: `0.75rem`, // 12pt
-  small: `0.875rem`, // 14pt
-  normal: `1rem`, // 16pt
-  large: `1.125rem`, // 18pt
-  xLarge: `1.875rem`, // 30pt
-  xxLarge: `2.125rem`, //
+  xxSmall: `0.625rem`, // 10px
+  xSmall: `0.75rem`, // 12px
+  small: `0.875rem`, // 14px
+  normal: `1rem`, // 16px
+  large: `1.25rem`, // 20px
+  xLarge: `1.5rem`, // 24px
+  xxLarge: `1.75rem`, // 28px
+  xxxLarge: `2rem`, // 32pt
 };
 
 export const fontWeights: { [key: string]: CSSObject } = {
@@ -52,18 +54,11 @@ export const BreakPoints = {
   xl: 1200,
 };
 
-export const colors: { [key: string]: CSSObject } = {
-  primary: { color: `#358CFE` },
-  black: { color: `#515355` },
-  white: { color: `#FFFFFF` },
-  green: { color: `#79cb20` },
-  red: { color: `#FB4E4E` },
-  gray: { color: `#BEBFC0` },
-};
-
 export const Colors = {
-  primary: `#358CFE`,
-  black: `#515355`,
+  primary: `#1DCEC9`,
+  secondary: `#F4F4F4`,
+  point: `#FE9000`,
+  black: `#141414`,
   white: `#FFFFFF`,
   green: `#79cb20`,
   red: `#FB4E4E`,
@@ -71,27 +66,8 @@ export const Colors = {
 };
 
 const html: CSSObject = {
-  // fontFamily: `var(--font-family-sans-serif)`,
-  // fontSize: `var(--font-default-size)`,
-  // fontWeight: `normal`,
   WebkitFontSmoothing: `antialiased`, // Antialiasing.
   MozOsxFontSmoothing: `grayscale`, // Antialiasing.
-  boxSizing: `border-box`,
-  //   backgroundColor: Colors.white
-};
-
-const body: CSSObject = {
-  margin: 0, // Remove the margin in all browsers.
-  //   color: TextColors.text,
-  //   fill: TextColors.fill,
-  // Add support for document.body.requestFullScreen().
-  // Other elements, if background transparent, are not supported.
-  '&::backdrop': {
-    // backgroundColor: Colors.grayDark
-  },
-  '@media print': {
-    // backgroundColor: Colors.white
-  },
 };
 
 const etc: CSSObject = {
@@ -104,6 +80,7 @@ const etc: CSSObject = {
   },
   '*': {
     boxSizing: `border-box`,
+    fontFamily: `Noto Sans KR`,
   },
 };
 
@@ -113,10 +90,10 @@ export const globalStyles: CSSObject = {
     backgroundColor: `#F3F4F8`,
   },
   body: {
-    ...body,
     width: `100vw`,
-    height: `100vh`,
+    minHeight: `100vh`,
     margin: 0,
+    backgroundColor: `${Colors.black}`,
   },
   main: {
     minHeight: `calc(100vh - 6rem)`,
