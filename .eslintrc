@@ -1,54 +1,40 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true,
-    "jest": true
-  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "prettier"
+  ],
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 2019,
     "sourceType": "module"
   },
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "root": true,
-  "extends": [
-    "eslint-config-prettier",
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier"
-  ],
-  "plugins": ["react", "@emotion"],
   "rules": {
-    "@emotion/no-vanilla": "error",
-    "@emotion/import-from-emotion": "error",
-    // "camelcase": "off",
+    // "@emotion/no-vanilla": "error",
+    // "@emotion/import-from-emotion": "error",
     "func-names": "off",
-    // "jest/prefer-strict-equal": "error",
-    // "jest/prefer-to-have-length": "warn",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-return-assign": "off",
-    // "prettier/prettier": "error",
     "react/button-has-type": "off",
     "react/function-component-definition": [
-      // components의 funciton-declaration 해제
       "error",
       {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ],
+    ], // components의 funciton-declaration 해제
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off", // 맨 위에 React 선언 안해도 됨
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
-    // "react/jsx-fragments": "off",
     "react/jsx-sort-props": [
       "warn",
       {
@@ -58,6 +44,7 @@
         "reservedFirst": true
       }
     ], // jsx components의 Attribute를 정렬
+    "react-hooks/exhaustive-deps": "warn", // useEffect dependencies 체크
     "import/prefer-default-export": "off",
     "import/order": [
       "warn",
@@ -90,65 +77,24 @@
         "js": "never",
         "jsx": "never"
       }
-    ]
-  },
-  "overrides": [
-    {
-      "files": "**/*.+(ts|tsx)",
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "plugins": ["@typescript-eslint/eslint-plugin"],
-      "extends": [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
-      ],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-var-requires": "off",
-        "no-use-before-define": [0],
-        "@typescript-eslint/no-use-before-define": [1],
-        // "import/no-anonymous-default-export": "off",
-        "import/no-unresolved": 0,
-        "import/no-extraneous-dependencies": [
-          "error",
-          {
-            "devDependencies": [
-              "**/*.test.ts",
-              "**/*.spec.ts",
-              "**/*.test.tsx",
-              "**/*.spec.tsx"
-            ]
-          }
-        ],
-        "quotes": "off",
-        "@typescript-eslint/quotes": [
-          2,
-          "backtick",
-          {
-            "avoidEscape": true
-          }
-        ]
-        // "@typescript-eslint/no-unused-vars": [
-        //   2,
-        //   {
-        //     "argsIgnorePattern": "^_"
-        //   }
-        // ] // 미사용 변수를 에러 처리할지
+    ],
+
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "consistent-return": "off",
+    "no-use-before-define": [0],
+    "@typescript-eslint/no-use-before-define": [1],
+    // "import/no-anonymous-default-export": "off",
+    "import/no-unresolved": 0,
+    "quotes": "off",
+    "@typescript-eslint/quotes": [
+      2,
+      "backtick",
+      {
+        "avoidEscape": true
       }
-    }
-  ],
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "project": "."
-      }
-    },
-    "react": {
-      "version": "detect"
-    }
+    ],
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }
