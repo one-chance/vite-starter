@@ -1,6 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
-
 import { FlexView, Text } from '@components/Common';
+import { Route, Routes } from 'react-router-dom';
 
 const Footer = () => (
   <FlexView
