@@ -1,18 +1,16 @@
-import { CSSObject, jsx } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import { fontSizes, fontWeights } from '@styles/system';
-import { HTMLAttributes, LabelHTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
-export type TextProps = (
-  | HTMLAttributes<HTMLSpanElement>
-  | LabelHTMLAttributes<HTMLLabelElement>
-) & {
+type HeadingPRops = HTMLAttributes<HTMLHeadingElement> & {
+  component: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  text: string;
   xxSmall?: boolean;
   xSmall?: boolean;
   small?: boolean;
   large?: boolean;
   xLarge?: boolean;
   xxLarge?: boolean;
-  xxxLarge?: boolean;
   light?: boolean;
   medium?: boolean;
   semiBold?: boolean;
@@ -21,41 +19,31 @@ export type TextProps = (
   color?: string;
   start?: boolean;
   center?: boolean;
-  end?: boolean;
   fill?: boolean;
   noDrag?: boolean;
-  space?: number;
-  underline?: boolean;
 };
 
 export default ({
+  component,
+  text,
   xxSmall,
   xSmall,
   small,
   large,
   xLarge,
   xxLarge,
-  xxxLarge,
   light,
   medium,
   semiBold,
   bold,
   black,
   color,
-  start,
   center,
-  fill,
   noDrag,
-  space,
-  underline,
   ...props
-}: TextProps) => {
-  const css: CSSObject = {
-    fontFamily: `Noto Sans KR`,
-    backgroundColor: `unset`,
-    color: color || `black`,
-    lineHeight: 1.25,
-    letterSpacing: space ? `${space}px` : `1px`,
+}: HeadingPRops) => {
+  const css = {
+    lineHeight: `150%`,
     ...fontSizes[
       (xxSmall && `xxSmall`) ||
         (xSmall && `xSmall`) ||
@@ -63,7 +51,6 @@ export default ({
         (large && `large`) ||
         (xLarge && `xLarge`) ||
         (xxLarge && `xxLarge`) ||
-        (xxxLarge && `xxxLarge`) ||
         `normal`
     ],
     ...fontWeights[
@@ -74,15 +61,12 @@ export default ({
         (black && `black`) ||
         `regular`
     ],
-    ...(start && { textAlign: `left` }),
-    ...(center && { textAlign: `center` }),
-    ...(fill && { flex: 1 }),
-    ...(noDrag && { userSelect: `none` }),
-    ...(underline && {
-      textDecoration: `underline`,
-      textUnderlinePosition: `under`,
-    }),
+    margin: 0,
+    whiteSpace: `pre-wrap`,
+    color: color || `black`,
+    textAlign: center ? `center` : `left`,
+    userSelect: noDrag ? `none` : `auto`,
   };
 
-  return jsx(`span`, { css, ...props });
+  return jsx(component, { css, children: text, ...props });
 };

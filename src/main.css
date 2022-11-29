@@ -41,7 +41,7 @@ code {
 
 * {
   box-sizing: border-box;
-  font-family: 'Noto Sans KR';
+  font-family: Noto Sans KR;
 }
 
 html {
@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  width: 100vw;
+  /* width: 100vw; */
   min-height: 100vh;
   margin: 0;
 }

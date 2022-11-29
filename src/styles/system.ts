@@ -64,39 +64,3 @@ export const Colors = {
   red: `#FB4E4E`,
   gray: `#BEBFC0`,
 };
-
-const html: CSSObject = {
-  WebkitFontSmoothing: `antialiased`, // Antialiasing.
-  MozOsxFontSmoothing: `grayscale`, // Antialiasing.
-};
-
-const etc: CSSObject = {
-  a: {
-    textDecoration: `none`,
-    color: `unset`,
-  },
-  'strong, b': {
-    fontWeight: 700,
-  },
-  '*': {
-    boxSizing: `border-box`,
-    fontFamily: `Noto Sans KR`,
-  },
-};
-
-export const globalStyles: CSSObject = {
-  html: {
-    ...html,
-    backgroundColor: `#F3F4F8`,
-  },
-  body: {
-    width: `100vw`,
-    minHeight: `100vh`,
-    margin: 0,
-    backgroundColor: `${Colors.black}`,
-  },
-  main: {
-    minHeight: `calc(100vh - 6rem)`,
-  },
-  ...etc,
-};

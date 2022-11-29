@@ -1,23 +1,19 @@
-import { CSSObject } from '@emotion/react';
+import { CSSObject, jsx } from '@emotion/react';
 import { SVGProps } from 'react';
 
-export type SvgProps = SVGProps<SVGSVGElement>;
+type SvgProps = SVGProps<SVGSVGElement>;
 
-const DEFAULT_VIEW_BOX_SIZE = 24;
+export default ({ width, height, ...props }: SvgProps) => {
+  const css: CSSObject = {
+    width: `auto`,
+    height: `100%`,
+  };
 
-const css: CSSObject = {
-  width: `auto`,
-  height: `100%`,
+  return jsx(`svg`, {
+    css,
+    focusable: false,
+    pointerEvents: `none`,
+    viewBox: `0 0 ${width || 24} ${height || 24}`,
+    ...props,
+  });
 };
-
-export default ({ width, height, ...props }: SvgProps) => (
-  <svg
-    css={css}
-    focusable="false"
-    pointerEvents="none"
-    viewBox={`0 0 ${width || DEFAULT_VIEW_BOX_SIZE} ${
-      height || DEFAULT_VIEW_BOX_SIZE
-    }`}
-    {...props}
-  />
-);
