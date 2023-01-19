@@ -1,6 +1,6 @@
-// import MainRouter from '@routes/MainRouter';
 import FooterRouter from '@routes/FooterRouter';
 import HeaderRouter from '@routes/HeaderRouter';
+import MainRouter from '@routes/MainRouter';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export type LayoutProps = DetailedHTMLProps<
@@ -14,11 +14,11 @@ export const Header = (props: LayoutProps) => (
   </header>
 );
 
-// export const Main = (props: LayoutProps) => (
-//   <main {...props} style={{ padding: `20px` }}>
-//     <MainRouter />
-//   </main>
-// );
+export const Main = (props: LayoutProps) => (
+  <main {...props} style={{ padding: `20px` }}>
+    <MainRouter />
+  </main>
+);
 
 export const Footer = (props: LayoutProps) => (
   <footer {...props}>

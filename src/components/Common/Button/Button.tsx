@@ -29,7 +29,7 @@ export default ({ type, fit, color, ...props }: ButtonProps) => {
       filter: `brightness(100%)`,
     },
     ':disabled': {
-      // filter: `opacity(50%)`,
+      filter: `opacity(50%)`,
       pointerEvents: `none`,
     },
     ...(fit && { width: `fit-content` }),
