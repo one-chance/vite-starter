@@ -33,6 +33,10 @@ export default defineConfig({
         replacement: path.resolve(rootDir, `locales`),
       },
       {
+        find: `@models`,
+        replacement: path.resolve(rootDir, `models`),
+      },
+      {
         find: `@pages`,
         replacement: path.resolve(rootDir, `pages`),
       },
