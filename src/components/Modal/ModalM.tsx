@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 
 interface ModalProps {
   children: ReactNode;
-  closePortal: () => void;
+  closePortal: (param: any) => void;
   color?: string;
   close?: boolean;
 }

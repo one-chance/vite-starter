@@ -9,7 +9,7 @@ interface ModalProps {
   height: number;
   close?: boolean;
   children: ReactNode;
-  closePortal: () => void;
+  closePortal: (param: any) => void;
 }
 
 export default ({
