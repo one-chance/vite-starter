@@ -50,7 +50,7 @@ export default defineConfig({
       },
       {
         find: `@utils`,
-        replacement: path.resolve(rootDir, `uitls`),
+        replacement: path.resolve(rootDir, `utils`),
       },
     ],
   },
