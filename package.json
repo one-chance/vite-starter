@@ -18,7 +18,7 @@
     "react-dom": "^18.0.0",
     "react-i18next": "^11.18.3",
     "react-router-dom": "^6.3.0",
-    "vite": "^3.2.4"
+    "vite": "^4.1.4"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.9.2",
