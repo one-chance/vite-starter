@@ -25,6 +25,7 @@
       "@models/*": ["models/*"],
       "@pages/*": ["pages/*"],
       "@routes/*": ["routes/*"],
+      "@services/*": ["services/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     }

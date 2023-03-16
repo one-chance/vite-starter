@@ -1,10 +1,9 @@
-import { Footer, Header, Main } from '@components/Layout';
-import React from 'react';
+import { FooterRouter, HeaderRouter, MainRouter } from '@routes/index';
 
 export default () => (
   <>
-    <Header />
-    <Main />
-    <Footer />
+    <HeaderRouter />
+    <MainRouter />
+    <FooterRouter />
   </>
 );

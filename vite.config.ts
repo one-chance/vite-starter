@@ -45,6 +45,10 @@ export default defineConfig({
         replacement: path.resolve(rootDir, `routes`),
       },
       {
+        find: `@services`,
+        replacement: path.resolve(rootDir, `services`),
+      },
+      {
         find: `@styles`,
         replacement: path.resolve(rootDir, `styles`),
       },
