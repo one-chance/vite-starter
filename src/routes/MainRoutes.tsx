@@ -1,12 +1,12 @@
-import HomePage from '@pages/Home';
-import NoMatchPage from '@pages/NoMatch';
+import Home from '@pages/Home';
+import NoMatch from '@pages/NoMatch';
 
-export const Home = {
+export const HomePge = {
   path: `/`,
-  element: <HomePage />,
+  element: <Home />,
 };
 
-export const NoMatch = {
+export const NoMatchPage = {
   path: `/*`,
-  element: <NoMatchPage />,
+  element: <NoMatch />,
 };
