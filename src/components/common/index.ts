@@ -1,12 +1,12 @@
-import { Button, ButtonProps } from './Button';
-import { Divider } from './Divider';
-import { Form } from './Form';
-import { Icon } from './Icon';
-import { Image } from './Image';
-import { Input, InputProps } from './Input';
-import { Anchor, Link, NavLink } from './Link';
-import { Svg } from './Svg';
-import { Text, TextProps } from './Text';
+import { Button, ButtonProps } from './button';
+import { Divider } from './divider';
+import { Form } from './form';
+import { Icon } from './icon';
+import { Image } from './image';
+import { Input, InputProps } from './input';
+import { Anchor, Link, NavLink } from './link';
+import { Svg } from './svg';
+import { Text, TextProps } from './text';
 import {
   FlexView,
   FlexViewProps,
@@ -14,7 +14,7 @@ import {
   GridViewProps,
   View,
   ViewProps,
-} from './View';
+} from './view';
 
 export {
   Anchor,
