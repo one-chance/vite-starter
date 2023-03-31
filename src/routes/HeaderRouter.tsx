@@ -1,4 +1,4 @@
-import { Header } from '@components/Layout';
+import { Header } from '@components/layout';
 import { Route, Routes } from 'react-router-dom';
 
 export default () => (

@@ -1,4 +1,4 @@
-import { Footer } from '@components/Layout';
+import { Footer } from '@components/layout';
 import { Route, Routes } from 'react-router-dom';
 
 export default () => (

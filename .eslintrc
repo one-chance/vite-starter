@@ -17,46 +17,20 @@
     "sourceType": "module"
   },
   "rules": {
-    // "@emotion/no-vanilla": "error",
-    // "@emotion/import-from-emotion": "error",
+    "consistent-return": "off",
     "func-names": "off",
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "no-return-assign": "off",
-    "react/button-has-type": "off",
-    "react/function-component-definition": [
+    "jsx-a11y/no-autofocus": "off",
+    "import/extensions": [
       "error",
+      "ignorePackages",
       {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ], // components의 funciton-declaration 해제
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off", // 맨 위에 React 선언 안해도 됨
-    "react/jsx-filename-extension": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off",
-    "react/jsx-sort-props": [
-      "warn",
-      {
-        "callbacksLast": true,
-        "shorthandLast": true,
-        "ignoreCase": true,
-        "reservedFirst": true
-      }
-    ], // jsx components의 Attribute를 정렬
-    "react-hooks/exhaustive-deps": "warn", // useEffect dependencies 체크
-    "import/prefer-default-export": "off",
-    "import/order": [
-      "warn",
-      {
-        "groups": ["builtin", "external", ["parent", "sibling"], "index"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        },
-        "newlines-between": "always"
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
       }
     ],
+    // "import/no-anonymous-default-export": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -68,26 +42,55 @@
         ]
       }
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    "import/no-unresolved": 0,
+    "import/order": [
+      "warn",
       {
-        "ts": "never",
-        "tsx": "never",
-        "js": "never",
-        "jsx": "never"
+        "groups": ["builtin", "external", ["parent", "sibling"], "index"],
+        "pathGroups": [
+          { "pattern": "react", "group": "builtin", "position": "after" },
+          { "pattern": "react-dom", "group": "builtin", "position": "after" }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "react-dom"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
       }
-    ],
-
+    ], // import 순서 및 예외 처리
+    "import/prefer-default-export": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-use-before-define": [0],
+    "no-return-assign": "off",
+    "quotes": "off",
+    "react/button-has-type": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ], // components의 funciton-declaration 해제
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandLast": true,
+        "ignoreCase": true,
+        "reservedFirst": true
+      }
+    ], // jsx components의 Attribute를 정렬
+    "react-hooks/exhaustive-deps": "warn", // useEffect dependencies 체크
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off", // 맨 위에 React 선언 안해도 됨
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "consistent-return": "off",
-    "no-use-before-define": [0],
     "@typescript-eslint/no-use-before-define": [1],
-    // "import/no-anonymous-default-export": "off",
-    "import/no-unresolved": 0,
-    "quotes": "off",
     "@typescript-eslint/quotes": [
       2,
       "backtick",
