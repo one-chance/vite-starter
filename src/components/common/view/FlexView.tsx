@@ -3,6 +3,7 @@ import { forwardRef, HTMLAttributes } from 'react';
 import { CSSObject, jsx } from '@emotion/react';
 
 export type FlexViewProps = HTMLAttributes<HTMLDivElement> & {
+  fit?: boolean;
   fill?: boolean;
   row?: boolean;
   center?: boolean;
@@ -11,6 +12,7 @@ export type FlexViewProps = HTMLAttributes<HTMLDivElement> & {
   gap?: number;
   content?: 'start' | 'end' | 'center' | 'between' | 'around';
   items?: 'start' | 'end' | 'center';
+  color?: string;
 };
 
 const justifyContents = {
@@ -38,6 +40,7 @@ const fixedCSS: CSSObject = {
 export default forwardRef<HTMLDivElement, FlexViewProps>(
   (
     {
+      fit,
       fill,
       row,
       content,
@@ -46,12 +49,14 @@ export default forwardRef<HTMLDivElement, FlexViewProps>(
       fixed,
       wrap,
       gap,
+      color,
       ...props
     }: FlexViewProps,
     ref,
   ) => {
     const css: CSSObject = {
       display: `flex`,
+      ...(fit && { width: `fit-content` }),
       ...(fill && { flex: 1 }),
       ...((row && { flexDirection: `row` }) || { flexDirection: `column` }),
       ...(center && { justifyContent: `center`, alignItems: `center` }),
@@ -60,6 +65,7 @@ export default forwardRef<HTMLDivElement, FlexViewProps>(
       ...(fixed && fixedCSS),
       ...(wrap && { flexWrap: `wrap` }),
       ...(gap && { gap: `${gap}px` }),
+      ...(color && { backgroundColor: color }),
     };
 
     return jsx(`div`, { css, ref, ...props });
