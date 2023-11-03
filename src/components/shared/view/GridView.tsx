@@ -31,7 +31,7 @@ const alignContents = {
   evenly: `space-evenly`,
 };
 
-export default forwardRef<HTMLDivElement, GridViewProps>(
+const GridView = forwardRef<HTMLDivElement, GridViewProps>(
   (
     {
       rows,
@@ -63,3 +63,5 @@ export default forwardRef<HTMLDivElement, GridViewProps>(
     return jsx(`div`, { css, ref, ...props });
   },
 );
+
+export default GridView;

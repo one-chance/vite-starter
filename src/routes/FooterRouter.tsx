@@ -1,8 +1,11 @@
-import { Footer } from '@components/layout';
 import { Route, Routes } from 'react-router-dom';
 
-export default () => (
+import { Footer } from '@components/layout';
+
+const FooterRouter = () => (
   <Routes>
     <Route element={<Footer />} path="/*" />
   </Routes>
 );
+
+export default FooterRouter;

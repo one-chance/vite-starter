@@ -1,7 +1,8 @@
-import { FlexView, Text, Link } from '@components/common';
 import { useTranslation } from 'react-i18next';
 
-export default () => {
+import { FlexView, Text, Link } from '@components/shared';
+
+export default function Header() {
   const [t] = useTranslation(`header`);
 
   return (
@@ -11,7 +12,7 @@ export default () => {
         css={{
           height: `3rem`,
           padding: `0 10%`,
-          borderBottom: `1px solid #D5D5D5`,
+          boxShadow: `0px 2px 4px rgba(0, 0, 0, 0.1)`,
         }}
         items="center"
         row
@@ -22,4 +23,4 @@ export default () => {
       </FlexView>
     </header>
   );
-};
+}

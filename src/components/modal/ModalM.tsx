@@ -1,10 +1,10 @@
 import { ReactNode, useEffect } from 'react';
-
 import { createPortal } from 'react-dom';
 
-import { Button, FlexView, Icon } from '@components/common';
 import { CSSObject } from '@emotion/react';
-import { Colors } from '@styles/system';
+
+import { Button, FlexView, Icon } from '@components/shared';
+import { Colors } from '@styles/index';
 
 interface ModalProps {
   children: ReactNode;
@@ -13,7 +13,12 @@ interface ModalProps {
   close?: boolean;
 }
 
-export default ({ children, closePortal, color, close }: ModalProps) => {
+export default function ModalM({
+  children,
+  closePortal,
+  color,
+  close,
+}: ModalProps) {
   const container = document.getElementById(`root-modal`);
 
   const contentCSS: CSSObject = {
@@ -50,4 +55,4 @@ export default ({ children, closePortal, color, close }: ModalProps) => {
         container,
       )
     : null;
-};
+}

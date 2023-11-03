@@ -30,3 +30,14 @@ export const useWindowSize = (): Size => {
 
   return windowSize;
 };
+
+export const useResponsive = (breakpoin: number): boolean => {
+  const { width } = useWindowSize();
+  const [isMobile, setIsMobile] = useState<boolean>(width <= breakpoin);
+
+  useEffect(() => {
+    setIsMobile(width <= breakpoin);
+  }, [width, breakpoin]);
+
+  return isMobile;
+};

@@ -1,37 +1,33 @@
 import { ReactNode, useEffect } from 'react';
-
 import { createPortal } from 'react-dom';
 
-import { FlexView, Icon, Button } from '@components/common';
 import { CSSObject } from '@emotion/react';
-import { Colors } from '@styles/system';
+
+import { FlexView } from '@components/shared';
 
 interface ModalProps {
   width: number;
   height: number;
-  close?: boolean;
   children: ReactNode;
   closePortal: (param: any) => void;
 }
 
-export default ({
+export default function Modal({
   width,
   height,
-  close,
   children,
   closePortal,
-}: ModalProps) => {
+}: ModalProps) {
   const container = document.getElementById(`root-modal`) as HTMLElement;
 
   const modalCSS: CSSObject = {
     position: `fixed`,
     top: 0,
     left: 0,
-    width: `100%`,
-    height: `100%`,
+    right: 0,
+    bottom: 0,
     zIndex: 1000,
     padding: `80px`,
-    margin: `auto 0`,
     overflowY: `auto`,
     scrollbarWidth: `none`,
     '::-webkit-scrollbar': { display: `none` },
@@ -77,18 +73,9 @@ export default ({
             onClick={closePortal}
           />
 
-          <FlexView css={contentCSS}>
-            {close && (
-              <FlexView items="end">
-                <Button aria-label="close" onClick={closePortal}>
-                  <Icon color={Colors.secondary} name="close" size={32} />
-                </Button>
-              </FlexView>
-            )}
-            {children}
-          </FlexView>
+          <FlexView css={contentCSS}>{children}</FlexView>
         </FlexView>,
         container,
       )
     : null;
-};
+}

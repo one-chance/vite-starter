@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import MainRoutes from './MainRoutes';
+import { HomePage, NoMatchPage } from '@pages/index';
 
-export default () => (
+const MainRouter = () => (
   <main>
     <Routes>
-      <MainRoutes />
-      {/* {Object.entries(MainRoutes).map(([key, value]) => (
-        <Route key={key} {...value} />
-      ))} */}
+      <Route element={<HomePage />} path="/" />
+      <Route element={<NoMatchPage />} path="*" />
     </Routes>
   </main>
 );
+
+export default MainRouter;

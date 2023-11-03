@@ -1,4 +1,4 @@
-export default {
+const en = {
   header: {
     title: `header`,
     korean: `KO`,
@@ -7,4 +7,6 @@ export default {
   footer: {
     title: `footer`,
   },
-};
+} as const;
+
+export default en;

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
-import { FlexView, Button, Icon, Text } from '@components/common';
 import { CSSObject } from '@emotion/react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import { FlexView, Button, Icon, Text } from '@components/shared';
 
 type PaginationProps = {
   count: number;
@@ -15,7 +16,7 @@ const buttonCSS: CSSObject = {
   lineHeight: 1,
 };
 
-export default ({ count, unit }: PaginationProps) => {
+export default function Pagination({ count, unit }: PaginationProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const [pageList, setPageList] = useState<number[]>([1, 2, 3, 4, 5]);
@@ -94,4 +95,4 @@ export default ({ count, unit }: PaginationProps) => {
       )}
     </FlexView>
   );
-};
+}
