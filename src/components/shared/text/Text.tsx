@@ -1,6 +1,7 @@
 import { HTMLAttributes, LabelHTMLAttributes } from 'react';
 
 import { CSSObject, jsx } from '@emotion/react';
+
 import { fontSizes, fontWeights } from '@styles/system';
 
 export type TextProps = (

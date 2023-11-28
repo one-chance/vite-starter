@@ -50,14 +50,9 @@ html {
 }
 
 body {
-  /* width: 100vw; */
-  min-height: 100vh;
   margin: 0;
 }
 
-main {
-  min-height: calc(100vh - 6rem);
-}
 
 a {
   text-decoration: none;

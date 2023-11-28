@@ -10,7 +10,7 @@ export type FlexViewProps = HTMLAttributes<HTMLDivElement> & {
   wrap?: boolean;
   fixed?: boolean;
   gap?: number;
-  content?: 'start' | 'end' | 'center' | 'between' | 'around';
+  contents?: 'start' | 'end' | 'center' | 'between' | 'around';
   items?: 'start' | 'end' | 'center';
   color?: string;
 };
@@ -43,7 +43,7 @@ const FlexView = forwardRef<HTMLDivElement, FlexViewProps>(
       fit,
       fill,
       row,
-      content,
+      contents,
       items,
       center,
       fixed,
@@ -60,7 +60,7 @@ const FlexView = forwardRef<HTMLDivElement, FlexViewProps>(
       ...(fill && { flex: 1 }),
       ...((row && { flexDirection: `row` }) || { flexDirection: `column` }),
       ...(center && { justifyContent: `center`, alignItems: `center` }),
-      ...(content && { justifyContent: justifyContents[content] }),
+      ...(contents && { justifyContent: justifyContents[contents] }),
       ...(items && { alignItems: alignItems[items] }),
       ...(fixed && fixedCSS),
       ...(wrap && { flexWrap: `wrap` }),
